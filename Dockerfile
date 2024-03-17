@@ -22,7 +22,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     curl \
     git
 
-#  create new user and group 
+#  create new user and group
 RUN addgroup -g $GID $GROUP_NAME || true \
     && adduser -D -u $UID -G $GROUP_NAME -s /bin/sh $USER || true \
     && echo "$USER:$USER_PASSWORD" | chpasswd \
@@ -53,7 +53,7 @@ ENV WORKSPACE_DIR=$WORKSPACE_DIR
 
 # install packages
 RUN apk add --no-cache \
-    pre-commit --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community 
+    pre-commit --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community
 # create the workspace directory
 RUN mkdir -p $WORKSPACE_DIR \
     && chown -R $UID:$GID $WORKSPACE_DIR \
@@ -65,7 +65,7 @@ USER $USER
 WORKDIR $WORKSPACE_DIR
 # set worspace as a safe directory
 RUN git config --global --add safe.directory $WORKSPACE_DIR
-# keep container running 
+# keep container running
 CMD tail -f /dev/null
 
 # PROD BUILD (set up your production build here)

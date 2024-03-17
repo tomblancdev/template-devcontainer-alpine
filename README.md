@@ -16,7 +16,7 @@
 ├── .gitignore # Git ignore file
 ├── .pre-commit-config.yaml # Pre-commit configuration
 ├── Dockerfile # Dockerfile
-├── LICENSE # License file 
+├── LICENSE # License file
 └── README.md # Readme file
 ```
 
