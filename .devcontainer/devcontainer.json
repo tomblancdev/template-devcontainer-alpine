@@ -8,6 +8,9 @@
 	],
 	"service": "my-project-image",
 	"workspaceFolder": "/workspace",
+
+	"postCreateCommand": "bash .devcontainer/post-create.sh",
+
 	"customizations": {
 		"vscode": {
 			"extensions": [
