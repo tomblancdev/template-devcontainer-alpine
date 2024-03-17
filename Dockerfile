@@ -17,6 +17,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     sudo \
     shadow \
     zsh \
+    zsh-vcs \
     bash \
     curl \
     git
@@ -52,16 +53,18 @@ ENV WORKSPACE_DIR=$WORKSPACE_DIR
 
 # install packages
 RUN apk add --no-cache \
-    pre-commit --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community
-
+    pre-commit --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community 
 # create the workspace directory
 RUN mkdir -p $WORKSPACE_DIR \
     && chown -R $UID:$GID $WORKSPACE_DIR \
     && chmod -R 770 $WORKSPACE_DIR
 
+
 USER $USER
 # set the working directory
 WORKDIR $WORKSPACE_DIR
+# set worspace as a safe directory
+RUN git config --global --add safe.directory $WORKSPACE_DIR
 # keep container running 
 CMD tail -f /dev/null
 
