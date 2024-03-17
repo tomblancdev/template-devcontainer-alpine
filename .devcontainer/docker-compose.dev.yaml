@@ -1,0 +1,24 @@
+version: 'latest'
+
+services:
+  my-project-image:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+      target: development
+      tags:
+        - my-project-image:latest
+      args:
+        - USER=user
+        - USER_PASSWORD=password
+        - USER_SUDO_ENABLED=true
+        - GROUP_NAME=user
+        - UID=1000
+        - GID=1000
+        - WORKSPACE_DIR=/workspace
+    container_name: my-project-image
+    environment:
+      ZSH_THEME: agnoster
+    volumes:
+      - ../:/workspace
+

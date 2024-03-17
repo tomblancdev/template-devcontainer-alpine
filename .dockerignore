@@ -1,0 +1,7 @@
+.devcontainer/
+.github/
+.gitattributes
+.gitignore
+.vscode/
+Dockerfile
+./compose-samples/

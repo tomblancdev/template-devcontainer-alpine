@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/alpine
+{
+	"name": "Alpine devcontainer template",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"dockerComposeFile": [
+		"docker-compose.dev.yaml"
+	],
+	"service": "my-project-image",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker", // Enable Docker linting, debugging, and more
+				"aaron-bond.better-comments", // Enhance your code comments
+				"streetsidesoftware.code-spell-checker", // Catch typos and spelling errors in your code
+				"usernamehw.errorlens", // Improve highlighting of errors, warnings, and other language diagnostics
+				"christian-kohler.path-intellisense" // Autocompletes filenames
+			]
+		}
+	}
+}
